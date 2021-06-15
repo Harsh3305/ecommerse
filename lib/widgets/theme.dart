@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
       fontFamily: GoogleFonts.lato().fontFamily,
+      cardColor: Colors.grey,
+      accentColor: Colors.blue,
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 10,
@@ -11,11 +13,15 @@ class MyTheme {
         textTheme: Theme.of(context).textTheme,
       ));
   static ThemeData darkTheme(BuildContext context) => ThemeData(
-      fontFamily: GoogleFonts.lato().fontFamily,
+      fontFamily: GoogleFonts.piazzolla().fontFamily,
+      cardColor: Colors.white,
+      accentColor: Colors.blueGrey,
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 10,
         iconTheme: IconThemeData(color: Colors.black),
         textTheme: Theme.of(context).textTheme,
       ));
+
+  static Color primaryLight = Colors.blue;
 }
