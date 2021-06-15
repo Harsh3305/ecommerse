@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:ecommerse/utils/my_routes.dart';
 import 'package:ecommerse/widgets/cart_item.dart';
+import 'package:ecommerse/widgets/like_item.dart';
 import 'package:ecommerse/widgets/my_app_bar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,8 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     loadProductData();
-    loadCatrData();
+    loadCartData();
+    loadLikeData();
   }
 
   @override
@@ -101,7 +103,7 @@ class _HomeState extends State<Home> {
     return;
   }
 
-  loadCatrData() async {
+  loadCartData() async {
     await Future.delayed(Duration(seconds: 2));
     final categoryJson = await rootBundle.loadString("assets/files/cart.json");
     // print(categoryJson);
@@ -112,6 +114,22 @@ class _HomeState extends State<Home> {
     // List<Item> list =
     CartProduct.products =
         List.from(productData).map<Cart>((item) => Cart.fromMap(item)).toList();
+
+    setState(() {});
+    return;
+  }
+
+  loadLikeData() async {
+    await Future.delayed(Duration(seconds: 2));
+    final likeJson = await rootBundle.loadString("assets/files/like.json");
+    // print(categoryJson);
+    final decoded = jsonDecode(likeJson);
+
+    var productData = decoded["products"];
+
+    // List<Item> list =
+    LikeProduct.products =
+        List.from(productData).map<Like>((item) => Like.fromMap(item)).toList();
 
     setState(() {});
     return;
