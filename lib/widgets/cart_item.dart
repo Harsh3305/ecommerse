@@ -16,19 +16,25 @@ class AllCartItem extends StatelessWidget {
           color: hexToColor(item.color),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
+            child: Column(
               children: [
                 Image.network(
                   item.image,
-                  height: 50,
-                  width: 50,
+                  height: 500,
+                  width: 500,
                 ),
                 Text(
                   item.name,
-                  style: TextStyle(color: Theme.of(context).accentColor),
+                  style: TextStyle(
+                      color: Theme.of(context).accentColor, fontSize: 100),
+                ),
+                Text(
+                  item.price.toString(),
+                  style: TextStyle(
+                      color: Theme.of(context).accentColor, fontSize: 50),
                 ),
                 Align(
-                  alignment: Alignment.centerRight,
+                  alignment: Alignment.center,
                   child: Image.asset(
                     "assets/images/delete.png",
                     height: 50,

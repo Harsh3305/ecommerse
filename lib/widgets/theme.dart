@@ -13,9 +13,9 @@ class MyTheme {
         textTheme: Theme.of(context).textTheme,
       ));
   static ThemeData darkTheme(BuildContext context) => ThemeData(
-      fontFamily: GoogleFonts.piazzolla().fontFamily,
-      cardColor: Colors.white,
-      accentColor: Colors.blueGrey,
+      fontFamily: GoogleFonts.lato().fontFamily,
+      cardColor: Colors.grey,
+      accentColor: Colors.blue,
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 10,
