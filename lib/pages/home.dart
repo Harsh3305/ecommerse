@@ -33,11 +33,34 @@ class _HomeState extends State<Home> {
       ),
       drawer: NavigationBar(),
       body: (CatalogItem.products != null && CatalogItem.products.isNotEmpty)
-          ? ListView.builder(
+          ? GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 16),
               itemBuilder: (context, index) {
-                return ItemWidge(
-                  item: CatalogItem.products[index],
-                );
+                final item = CatalogItem.products[index];
+                return Card(
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100)),
+                    child: GridTile(
+                      child: Image.network(item.image),
+                      header: Container(
+                        padding: const EdgeInsets.all(50),
+                        child: Text(
+                          item.name,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.blue),
+                        ),
+                      ),
+                      footer: Container(
+                        padding: const EdgeInsets.all(50),
+                        child: Text(
+                          "₹ ${item.price}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.blue),
+                        ),
+                      ),
+                    ));
               },
               itemCount: CatalogItem.products.length,
             )
